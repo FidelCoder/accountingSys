@@ -493,6 +493,7 @@ class EntityManagementModelAbstract(CreateUpdateMixIn):
     uuid = models.UUIDField(default=uuid4, editable=False, primary_key=True)
     entity = models.ForeignKey('django_ledger.EntityModel',
                                on_delete=models.CASCADE,
+                               null=True,
                                verbose_name=_('Entity'),
                                related_name='entity_permissions')
     user = models.ForeignKey(UserModel,
@@ -523,7 +524,8 @@ def entitymodel_postsave(instance, **kwargs):
         ChartOfAccountModel.objects.create(
             slug=instance.slug + '-coa',
             name=instance.name + ' CoA',
-            entity=instance
+            entity=instance,
+            null=True
         )
         instance.ledgermodel_set.create(
             name=_(f'{instance.name} General Ledger'),

@@ -11,6 +11,7 @@ from django_ledger.models.journalentry import JournalEntryModel
 from django_ledger.models.ledger import LedgerModel
 from django_ledger.models.transactions import TransactionModel
 from django_ledger.models.vendor import VendorModel
+from django_ledger.models.mpesa import Mpesa_Transaction
 
 
 class TransactionModelInLine(admin.TabularInline):
@@ -158,3 +159,4 @@ admin.site.register(BillModel, BillModelAdmin)
 admin.site.register(BankAccountModel, BankAccountModelAdmin)
 admin.site.register(CustomerModel, CustomerModelAdmin)
 admin.site.register(VendorModel, VendorModelAdmin)
+admin.site.register(Mpesa_Transaction)
