@@ -1,0 +1,28 @@
+{% extends 'django_ledger/layouts/content_layout_1.html' %}
+{% load i18n %}
+{% load django_ledger %}
+
+{% block view_content %}
+<div class="container center">
+    <div class="alert alert-success" role="alert">
+        Thanks for Using Accounting Ledger. <br>
+        Your current amount transacted is <strong>4000 at {{time}} </strong><br>
+        We will continue to serve you better <a href="{% url 'ledger-list' %}" class="alert-link">Back to home</a>.
+    </div>
+    </div>
+    <style>
+        .container {
+            min-height: 600px;
+        }
+    
+        .wrap-payment {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .payment-form {
+            color: rgb(9, 201, 73);
+        }
+    </style>
+{% endblock %}
